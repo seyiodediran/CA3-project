@@ -1,26 +1,48 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateCitizenDto } from './dto/create-citizen.dto';
 import { UpdateCitizenDto } from './dto/update-citizen.dto';
+import { Citizen } from './entities/citizen.entity'
 
 @Injectable()
 export class CitizensService {
-  create(createCitizenDto: CreateCitizenDto) {
-    return 'This action adds a new citizen';
+
+  constructor(
+
+    // Inject Repository for use within the class as if it is part of the class
+    @InjectRepository(Citizen)
+    private citizensRepository: Repository<Citizen>
+  ){}
+
+  getSignup(): {} {
+   
+    return {title: "Sign-up"}
   }
 
-  findAll() {
-    return `This action returns all citizens`;
+  async create(createCitizenDto: CreateCitizenDto) {
+    // return 'This action adds a new citizen';
+    const newCitizen: Citizen = this.citizensRepository.create(createCitizenDto);
+    return this.citizensRepository.save(newCitizen);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} citizen`;
+  async findAll() {
+    // return `This action returns all citizens`;
+    return await this.citizensRepository.find();
   }
 
-  update(id: number, updateCitizenDto: UpdateCitizenDto) {
-    return `This action updates a #${id} citizen`;
+  async findOne(id: number) {
+    // return `This action returns a #${id} citizen`;
+    return await this.citizensRepository.findOne(id);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} citizen`;
+  async update(id: number, updateCitizenDto: UpdateCitizenDto) {
+    // return `This action updates a #${id} citizen`;
+    return await this.citizensRepository.update(id, updateCitizenDto);
+  }
+
+  async remove(id: number) {
+    // return `This action removes a #${id} citizen`;
+    return await this.citizensRepository.delete(id);
   }
 }

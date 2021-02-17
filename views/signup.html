@@ -1,0 +1,293 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <header class="header">
+        <div class="logo">
+
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="signin"><button class="button">Sign in</button></a>
+                </li>
+                <li>
+                    <a href="/signup"><button class="button is-primary">Register</button></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="hero-image">
+            <img src="/public/img/family7.svg" alt="">
+        </div>
+        <div class="hero-text">
+            <div id="notification" class="notification container is-hidden animated slideInUp">
+                <button class="delete"></button>
+                <div id="notificationMessage">
+                    {{notificationMessage}}
+                </div>
+            </div>
+            <form method="post" action="/citizens/" id="createUserForm">
+                <div class="field">
+                    <label class="label has-text-left">First Name</label>
+                    <div class="control">
+                        <input class="input" id="firstName" type="text" placeholder="First Name" name="firstName">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">Middle Name</label>
+                    <div class="control">
+                        <input class="input" id="middleName" type="text" placeholder="Middle Name" name="middleName">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">Last Name</label>
+                    <div class="control">
+                        <input class="input" id="lastName" type="text" placeholder="Last Name" name="lastName">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">D.O.B</label>
+                    <div class="control">
+                        <input class="input" id="dateOfBirth" type="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" placeholder="yyyy-mm-dd" name="dateOfBirth">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">nationality</label>
+                    <div class="control">
+                        <input class="input" id="nationality" type="text" placeholder="Nationality" name="nationality">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">Country of Birth</label>
+                    <div class="control">
+                        <input class="input" id="countryOfBirth" type="text" placeholder="Country of Birth" name="countryOfBirth">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">State of Birth</label>
+                    <div class="control">
+                        <input class="input" id="stateOfBirth" type="text" placeholder="State of Birth" name="stateOfBirth">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">Town of Birth</label>
+                    <div class="control">
+                        <input class="input" id="townOfBirth" type="text" placeholder="Toen of Birth" name="townOfBirth">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">Residential Address</label>
+                    <div class="control">
+                        <input class="input" id="residenceAddress" type="text" placeholder="Residential Address" name="residenceAddress">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-left">Profession</label>
+                    <div class="control">
+                        <input class="input" id="profession" type="text" placeholder="Profession" name="profession">
+                    </div>
+                </div>
+
+                
+<!-- 
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p class="help is-success">This username is available</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                    </div>
+                    <p class="help is-danger">This email is invalid</p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Subject</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>Select dropdown</option>
+                                <option>With options</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="question">
+                            Yes
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="question">
+                            No
+                        </label>
+                    </div>
+                </div> -->
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" id="submitCreateUserForm">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
+</div>
+
+
+{% endblock %}
+
+<script>
+    const createUserForm = document.getElementById('createUserForm');
+
+    createUserForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    //Get fields and check validities
+    const firstName = document.getElementById('firstName').value;
+    if (firstName == '') {
+        firstName.reportValidity();
+        return false;
+    }
+
+    const middleName = document.getElementById('middleName').value;
+    
+    const lastName = document.getElementById('lastName').value;
+    if (lastName == '') {
+        lastName.reportValidity();
+        return false;
+    }
+
+    const dateOfBirth = document.getElementById('dateOfBirth').value;
+    if (dateOfBirth == '') {
+        dateOfBirth.reportValidity();
+        return false;
+    }
+    
+    const nationality = document.getElementById('nationality').value;
+    if (nationality == '') {
+        dateOfBirth.reportValidity();
+        return false
+    }
+
+
+    const countryOfBirth= document.getElementById('countryOfBirth').value;
+    if (countryOfBirth == '') {
+        dateOfBirth.reportValidity();
+        return false
+    }
+
+    const stateOfBirth= document.getElementById('stateOfBirth').value;
+    if (stateOfBirth == '') {
+        dateOfBirth.reportValidity();
+        return false
+    }
+
+    const townOfBirth= document.getElementById('townOfBirth').value;
+
+    const residenceAddress = document.getElementById('residenceAddress').value;
+    if (residenceAddress == '') {
+        dateOfBirth.reportValidity();
+        return false
+    }
+
+    const profession = document.getElementById('profession').value;
+    if (profession == '') {
+        dateOfBirth.reportValidity();
+        return false
+    }
+
+    //start the button spinner
+    document.getElementById("submitCreateUserForm").classList.add("is-loading");
+
+    //prepare init for fetch
+    const init = {
+        method: 'Post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        //credentials: 'same-origin',
+        body: JSON.stringify({ firstName, middleName, lastName, dateOfBirth, nationality, countryOfBirth, stateOfBirth, townOfBirth, residenceAddress, profession })
+    }
+
+    //call fetch
+    fetch('/citizens', init)
+        .then(response => response.json())
+        .then(data => {
+            //alert(JSON.stringify(data))
+            //remove spinner class
+            document.getElementById("submitCreateUserForm").classList.remove("is-loading");
+            //set notification
+            document.getElementById("notificationMessage").innerHTML = 'User creation successful';
+            //add notification color class sent
+            document.getElementById("notification").classList.add("is-success");
+            //remove is-hidden from notificationWrapper
+            document.getElementById("notification").classList.remove("is-hidden");
+
+        })
+        .catch(error => {
+            //remove spinner class
+            document.getElementById("submitCreateUserForm").classList.remove("is-loading");
+
+            document.getElementById("notificationMessage").innerHTML = error.message;
+            //add notification color class sent
+            document.getElementById("notification").classList.add("is-danger");
+            //remove is-hidden from notificationWrapper
+            document.getElementById("notification").classList.remove("is-hidden");
+
+        });
+    })
+
+</script>

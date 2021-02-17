@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'poppins';
+    /* background-image: url('../img/bg.jpg'); */
+
+}
+
+.container {
+    
+    
+}
+
+.header {
+    display: flex;
+    padding-top: 30px;
+}
+
+.nav, .logo {
+    flex: 1;
+}
+
+.nav ul{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.nav ul li {
+    padding: 0 8px;
+    
+}
+
+.nav ul li button {
+    font-weight: bold;
+}
+
+
+.section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-image, .hero-text {
+    flex: 1;
+}
+.section h1{
+    
+    font-size: 48px;
+    font-weight: bold;
+    color:black;
+}
+
+.section p {
+    font-size: 24px;
+    color:black;
+}
+
+.hero-image img {
+    width: 250%;
+    height:auto;
+}
