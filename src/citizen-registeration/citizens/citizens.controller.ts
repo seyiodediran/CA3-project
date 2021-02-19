@@ -21,9 +21,12 @@ export class CitizensController {
 
   @Get()
   @Render('citizens.html')
-  findAll() {
-    return this.citizensService.findAll();
+  getCitizens(): {}{
+    return this.citizensService.getCitizens();
   }
+  // findAll() {
+  //   return this.citizensService.findAll();
+  // }
 
   @Get(':id')
   findOne(@Param('id') id: string) {

@@ -20,6 +20,12 @@ export class CitizensService {
     return {title: "Sign-up"}
   }
 
+  getCitizens(): {} {
+    const citizens = this.citizensRepository.find();
+
+    return {citizens:citizens}
+  }
+
   async create(createCitizenDto: CreateCitizenDto) {
     // return 'This action adds a new citizen';
     const newCitizen: Citizen = this.citizensRepository.create(createCitizenDto);
