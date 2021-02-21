@@ -1,5 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
-
+import {Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn} from 'typeorm'
+import { Biodatum } from "../../biodata/entities/biodatum.entity"
 @Entity()
 export class Citizen {
     @PrimaryGeneratedColumn()
@@ -34,5 +34,8 @@ export class Citizen {
 
     @Column({ nullable: true})
     profession: string;
+
+    @OneToOne(type => Biodatum, biodatum => biodatum.citizen)
+    biodatum: Biodatum;
 }
 

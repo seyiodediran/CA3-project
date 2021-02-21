@@ -25,7 +25,13 @@
                 Register as a citizen today.
             </h1>
             <p>
-                {{citizens}}
+                {% for citizen in citizens%}
+
+                {{Object.keys(citizens).map(function(key, index) {
+                    citizens[key] *= 2;
+                  })}}
+
+                  {% endfor %},
             </p>
         </div>
         
