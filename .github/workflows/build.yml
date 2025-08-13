@@ -41,6 +41,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+      - uses: SonarSource/sonarqube-scan-action@v5
+        env:
+           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
       # Fail build if Quality Gate fails
       - name: SonarCloud Quality Gate
         uses: SonarSource/sonarcloud-quality-gate-action@master
